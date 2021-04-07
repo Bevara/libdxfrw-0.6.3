@@ -1,0 +1,56 @@
+###
+
+VER_MINOR = 1
+VER_MAJOR = 0
+TARGET =dxfrw
+
+
+SOURCES = src/drw_classes.cpp \
+	src/drw_dbg.cpp \
+	src/drw_entities.cpp \
+	src/drw_header.cpp \
+	src/drw_objects.cpp \
+	src/drw_textcodec.cpp \
+	src/dwgbuffer.cpp \
+	src/dwgreader.cpp \
+	src/dwgreader15.cpp \
+	src/dwgreader18.cpp \
+	src/dwgreader21.cpp \
+	src/dwgreader24.cpp \
+	src/dwgreader27.cpp \
+	src/dwgutil.cpp \
+	src/dx_iface.cpp  \
+	src/dxfreader.cpp \
+	src/dxfwriter.cpp \
+	src/libdwgr.cpp \
+	src/libdxfrw.cpp \
+	src/main.cpp \
+	src/rscodec.cpp
+
+
+# Uncomment for gcc version
+CC=g++
+LD=g++
+LDFLAGS = 
+CFLAGS = -g  -DBEV_DBG -v -Wall #- -DDEBUG -DDEBUGME std=gnu99 -pedantic  #  -I"../../include"-nostdinc  -I"./LOCALINC" #-fno-strict-aliasing -fsigned-char $(STATIC) 
+MODULES = $(SOURCES:.c=.o)
+ASFILE = $(TARGET).o
+BCFILE = $(TARGET).exe
+#
+
+all: $(SOURCES) $(ASFILE) 
+
+$(ASFILE): $(MODULES)
+	$(CC) $(LDFLAGS)  $(MODULES) -o $@ 
+	
+.c.o:	
+	$(CC) $(CFLAGS) -c $< -o $@
+
+
+
+clean:
+	@echo remove all objects
+	@rm src/*.o
+
+
+

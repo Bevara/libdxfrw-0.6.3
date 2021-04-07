@@ -1,0 +1,2 @@
+C:\Bevara_Devel\Development\libdxfrw-0.6.3\Debug\dxfreader.exe
+C:\Bevara_Devel\Development\libdxfrw-0.6.3\Debug\dxfreader.pdb
